@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>calculator</title>
+<style>
+	input[type=reset]{
+		background-color: gray;
+		height:100px;
+		width:100px;
+	}
+	input[type=button]{
+		background-color: gray;
+		height:100px;
+		width:100px;
+	}
+	input[type=text]{
+		background-color: gray;
+		height:100px;
+		width: 414px;;
+	}
+	td{
+		text-align:center;
+		height:100px;
+		width:100px;
+	}
+	.cl3{
+		background-color: orange;
+	}
+	body{
+		background-color:black;
+	}
+</style>
+<script>
+	var q=""
+	var w=""
+	var e=""
+	function calc(a){
+		var otvet = document.getElementById('window'); 
+		if(a=="R"){
+			otvet.value="";
+			q="";
+			w="";
+			e="";
+
+		}
+		if(a=="+" || a=="-" || a=="x" || a=="/" || a=="//" || a=="%"){
+			q=otvet.value
+			e=a
+			otvet.value=""
+			return;
+			}
+		if (a=="="){
+			w=otvet.value
+			if (e=="+"){
+				otvet.value=Number(q)+Number(w);
+			}
+			if (e=="-"){
+				otvet.value=Number(q)-Number(w);
+			}
+			if (e=="/"){
+				otvet.value=Number(q)/Number(w);
+			}
+			if (e=="//"){
+				otvet.value=Math.floor(Number(q)/Number(w));
+			}
+			if (e=="x"){
+				otvet.value=Number(q)*Number(w);
+			}
+			if (e=="%"){
+				otvet.value=Number(q)%Number(w);
+			}
+		}
+		if (a=="1" ||a=="2" ||a=="3" ||a=="4" ||a=="5" ||a=="6" ||a=="7" ||a=="8" ||a=="9" ||a=="0" ||a=="00"|| a==".")
+		otvet.value+=a
+		}
+		
+</script>
+</head>
+<body>
+	<form>
+	<table border="1" align="center" class="cl1">
+		<tr>
+			<td height="90" colspan="5"> <input type="text" value="" id="window" name="window" readonly> </td>
+		</tr>
+		<tr>			
+			<td> <input type="reset" value="R" color="gray" name="st1"></td>
+			<td> <input type="button" value="//" name="//" onClick="calc('//')"> </td>
+			<td> <input type="button" value="%" name="%" onClick="calc('%')"> </td>
+			<td> <input type="button" value="/" name="/" onClick="calc('/')"> </td>
+		</tr>
+		<tr>			
+			<td> <input type="button" value="7" name="7" onClick="calc('7')"> </td>
+			<td> <input type="button" value="8" name="8" onClick="calc('8')"></td>
+			<td> <input type="button" value="9" name="9" onClick="calc('9')"> </td>
+			<td> <input type="button" value="x" name="x" onClick="calc('x')"> </td>
+		</tr>
+		<tr>			
+			<td> <input type="button" value="4" name="4" onClick="calc('4')">  </td>
+			<td> <input type="button" value="5" name="5" onClick="calc('5')"> </td>
+			<td> <input type="button" value="6" name="6" onClick="calc('6')"> </td>
+			<td> <input type="button" value="-" name="-" onClick="calc('-')"> </td>
+		</tr>
+		<tr>			
+			<td> <input type="button" value="1" name="1" onClick="calc('1')"> </td>
+			<td> <input type="button" value="2"  name="2" onClick="calc('2')"> </td>
+			<td> <input type="button" value="3"  name="3" onClick="calc('3')"> </td>
+			<td > <input type="button" value="+"  name="+" onClick="calc('+')">  </td>
+		</tr>
+		<tr>
+			<td> <input type="button" value="00"  name="00" onClick="calc('00')"></td>
+			<td> <input type="button" value="0"  name="0" onClick="calc('0')"></td>
+			<td> <input type="button" value="."  name="." onClick="calc('.')"></td>
+			<td > <input type="button" value="="  name="=" onClick="calc('=')"></td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>
